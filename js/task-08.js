@@ -4,21 +4,30 @@ const destroyBtn = document.querySelector('button[data-action="destroy"]')
 let boxes = document.querySelector('#boxes');
 
 const createBoxes = (amount) => {
-    const divDimension = 30;
-    console.log(amount);
-    for (const i = 0; i < amount; i += 1) {
-        const div = document.createElement(div);
-        div.style.heigth = `${divDimension}px`;
-        div.style.width = `${divDimension}px`;
-        div.style.backgroundColor = '#' + (Math.random().toString(16) + '000000').substring(2, 8).toUpperCase();
+    let divDimension = 30;
+    for (let i = 0; i < amount; i += 1) {
+        const divEl = document.createElement('div');
+        divEl.style.height = `${divDimension}px`;
+        divEl.style.width = `${divDimension}px`;
+        divEl.style.backgroundColor = '#' + (Math.random().toString(16) + '000000').substring(2, 8).toUpperCase();
+        divEl.classList.add("div");
         divDimension += 10;
-        boxes.appendChild(div);
+        boxes.appendChild(divEl);
     };
 };
 
 const renderAction = () => {
     const amount = input.value;
-    createBoxes;
+    return createBoxes(amount);
 };
 
+const destroyAction = () => {
+    const allDivEls = document.querySelectorAll('.div');
+    allDivEls.forEach(value => value.remove())
+};
+
+
 renderBtn.addEventListener('click', renderAction);
+destroyBtn.addEventListener('click', destroyAction);
+
+
