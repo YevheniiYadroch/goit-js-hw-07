@@ -7,10 +7,13 @@ const ingredients = [
   'Приправы',
 ];
 
-const list = document.querySelector('#ingredients')
+const list = document.querySelector('#ingredients');
+let newElements = [];
 
-ingredients.forEach(element => {
-    const li = document.createElement('li');
-    li.textContent = element;
-    list.insertAdjacentElement("beforeend", li);
+ingredients.forEach(value => {
+  const li = document.createElement('li');
+  li.textContent = value;
+  newElements.push(li);
 });
+
+list.append(...newElements);

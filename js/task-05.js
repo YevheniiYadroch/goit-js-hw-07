@@ -3,7 +3,7 @@ var output = document.querySelector('#name-output');
 
 const settingOutput = () => {
     
-    if (input.value === '') {
+    if (input.value === '' || input.value.trim() === '') {
         output.textContent = 'незнакомец';
     } else {
         output.textContent = input.value;
